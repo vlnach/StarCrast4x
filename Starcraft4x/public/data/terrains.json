@@ -1,0 +1,6 @@
+[
+  { "id": "plains", "moveCost": 1, "passable": true, "color": "#94a3b8" },
+  { "id": "forest", "moveCost": 2, "passable": true, "color": "#3b8d5a" },
+  { "id": "mountain", "moveCost": 3, "passable": true, "color": "#7a5a42" },
+  { "id": "water", "moveCost": 1, "passable": false, "color": "#1e88e5" }
+]
