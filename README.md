@@ -1,4 +1,4 @@
-# Eclipse of Realms — Mini 4X Hex (React)
+# Eclipse of Realms Mini 4X Hex (React)
 
 Small one-week project with **React + Vite**.  
 Move a hero on a hex map (axial `q,r`); terrains have different move costs.  
