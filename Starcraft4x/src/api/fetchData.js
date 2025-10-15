@@ -8,19 +8,6 @@ import { supabaseClient } from "./supabaseClient.js";
  */
 
 export async function fetchTerrainRecords() {
-  if (supabaseClient) {
-    const { data, error } = await supabaseClient.from("terrains").select("*");
-    if (!error && Array.isArray(data) && data.length) {
-      return Object.fromEntries(
-        data.map((row) => [
-          row.id,
-          { moveCost: row.moveCost, passable: row.passable, color: row.color },
-        ])
-      );
-    }
-    if (error) console.warn("Supabase terrains error:", error.message);
-  }
-
   const response = await fetch("/data/terrains.json");
   if (!response.ok) throw new Error("Failed to load terrains.json");
   const arrayData = await response.json();

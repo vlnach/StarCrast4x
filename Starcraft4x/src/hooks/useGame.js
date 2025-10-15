@@ -1,34 +1,15 @@
 import { useGameContext } from "../context/GameContext.jsx";
 
+import {
+  neighborOffsetsAxial,
+  getAxialDistance,
+  isAdjacentAxial,
+} from "../components/axial.js";
+
 /**
  * Axial hex helpers and gameplay actions with descriptive names.
  * Public API (returned from useGame) is unchanged.
  */
-
-const neighborOffsetsAxial = [
-  { deltaQ: +1, deltaR: 0 },
-  { deltaQ: +1, deltaR: -1 },
-  { deltaQ: 0, deltaR: -1 },
-  { deltaQ: -1, deltaR: 0 },
-  { deltaQ: -1, deltaR: +1 },
-  { deltaQ: 0, deltaR: +1 },
-];
-
-/** Hex distance in axial coordinates. */
-function getAxialDistance(fromAxial, toAxial) {
-  const deltaQ = fromAxial.q - toAxial.q;
-  const deltaR = fromAxial.r - toAxial.r;
-  const deltaS = -deltaQ - deltaR; // third cube axis so q+r+s = 0
-  return (Math.abs(deltaQ) + Math.abs(deltaR) + Math.abs(deltaS)) / 2;
-}
-
-/** Adjacent check in axial coordinates (six neighbors). */
-function isAdjacentAxial(fromAxial, toAxial) {
-  return neighborOffsetsAxial.some(
-    ({ deltaQ, deltaR }) =>
-      fromAxial.q + deltaQ === toAxial.q && fromAxial.r + deltaR === toAxial.r
-  );
-}
 
 export function useGame() {
   const { gameState, dispatchGameAction } = useGameContext();
